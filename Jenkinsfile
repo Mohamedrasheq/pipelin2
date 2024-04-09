@@ -1,10 +1,7 @@
 pipeline {
     agent any
     
-    tools {
-        // Use the Git tool installation configured in Jenkins
-        git 'git'
-    }
+
     
     stages {
         stage('Build') {
