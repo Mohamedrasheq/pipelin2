@@ -3,17 +3,19 @@ pipeline {
     
     options {
         // Use predefined Git tool installation
-        tools {
-            // Specify the name of the Git tool installation configured in Jenkins
-            git 'git'
-        }
+        skipDefaultCheckout() // Skip the default checkout behavior
+    }
+    
+    environment {
+        // Define the Git tool installation to use
+        GIT_HOME = tool 'git'
     }
     
     stages {
         stage('Build') {
             steps {
                 // Checkout the code from your Git repository
-                git 'https://github.com/Mohamedrasheq/pipelin2.git'
+                git branch: 'main', url: 'https://github.com/Mohamedrasheq/pipelin2.git'
                 
                 // Build the Maven project
                 bat 'mvn clean package'
