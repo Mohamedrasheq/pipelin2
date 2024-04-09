@@ -1,14 +1,9 @@
 pipeline {
     agent any
     
-    options {
-        // Use predefined Git tool installation
-        skipDefaultCheckout() // Skip the default checkout behavior
-    }
-    
-    environment {
-        // Define the Git tool installation to use
-        GIT_HOME = tool 'git'
+    tools {
+        // Use the Git tool installation configured in Jenkins
+        git 'git'
     }
     
     stages {
