@@ -1,13 +1,17 @@
 pipeline {
     agent any
     
+    options {
+        // Use predefined Git tool installation
+        tools {
+            // Specify the name of the Git tool installation configured in Jenkins
+            git 'git'
+        }
+    }
+    
     stages {
         stage('Build') {
             steps {
-                // Ensure Git is properly configured
-                // Specify the path to the Git executable
-                tool 'git'
-                
                 // Checkout the code from your Git repository
                 git 'https://github.com/Mohamedrasheq/pipelin2.git'
                 
